@@ -1,16 +1,16 @@
-function getRandomIntInclusive(min , max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
+function getRandomIntInclusive(min,max) {
+    min=Math.ceil(min);
+    max=Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
-function RandomStacks(siz , stack){
+function RandomStacks(siz,stack){
     let arr = [];
-    for(let i = 0; i < siz; i++){
+    for(let i=0; i<siz; i++){
         arr.push(i);
     }
-    let a = 0
-    for(let i = arr.length; i>0; i--){
+    let a=0
+    for(let i=arr.length; i>0; i--){
         a = getRandomIntInclusive(0,arr.length - 2)
         stack.push(arr[a]);
         arr.splice(a,1);
@@ -20,11 +20,11 @@ function RandomStacks(siz , stack){
 function Stack() {
     this.dataStore = []
     this.top = 0
-    this.push = push
-    this.pop = pop
-    this.peek = peek
-    this.clear = clear
-    this.length = length
+    this.push=push
+    this.pop=pop
+    this.peek=peek
+    this.clear=clear
+    this.length=length
 }
 
 function push(element) {
@@ -49,7 +49,7 @@ function length() {
 
 function sort(stack){
     let tempStack= new Stack();
-    let step = 0;
+    let step=0;
     while (stack.length() > 0){
         let tmp = stack.pop();
         step++;
@@ -61,17 +61,17 @@ function sort(stack){
         tempStack.push(tmp)
     }
     step++;
-    stack.dataStore = tempStack.dataStore;
+    stack.dataStore=tempStack.dataStore;
     console.log("Tomó "+step+" pasos para completar")
 }
 
 
 
 
-let Mystack = new Stack()
+let Mystack=new Stack()
 
-//10 valores
-for(var i  = 0; i < 5; i++){
+//10 elementos
+for(var i=0; i<5; i++){
     Mystack.clear();
     RandomStacks(10, Mystack)
     console.time('Function execution Time')
@@ -80,8 +80,8 @@ for(var i  = 0; i < 5; i++){
     console.log(Mystack.dataStore)
 }
 
-//100 valores
-for(var i  = 0; i < 5; i++){
+//100 elementos
+for(var i=0; i<5; i++){
     Mystack.clear();
     RandomStacks(100, Mystack)
     console.time('Function execution Time')
@@ -90,8 +90,8 @@ for(var i  = 0; i < 5; i++){
     console.log(Mystack.dataStore)
 }
 
-//1000 valores
-for(var i  = 0; i < 5; i++){
+//1000 elementos
+for(var i=0; i<5; i++){
     Mystack.clear();
     RandomStacks(1000, Mystack)
     console.time('Function execution Time')
