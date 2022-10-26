@@ -1,17 +1,17 @@
-function getRandomIntInclusive(min,max) {
+function getRandomIntInclusive(min,max){
     min=Math.ceil(min);
     max=Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 
 function RandomStacks(siz,stack){
-    let arr = [];
+    let arr=[];
     for(let i=0; i<siz; i++){
         arr.push(i);
     }
     let a=0
     for(let i=arr.length; i>0; i--){
-        a = getRandomIntInclusive(0,arr.length - 2)
+        a=getRandomIntInclusive(0,arr.length - 2)
         stack.push(arr[a]);
         arr.splice(a,1);
     }  
@@ -19,7 +19,7 @@ function RandomStacks(siz,stack){
 
 function Stack() {
     this.dataStore = []
-    this.top = 0
+    this.top=0
     this.push=push
     this.pop=pop
     this.peek=peek
@@ -28,7 +28,7 @@ function Stack() {
 }
 
 function push(element) {
-    this.dataStore[this.top++] = element
+    this.dataStore[this.top++]=element
 }
 
 function peek() {
@@ -51,7 +51,7 @@ function sort(stack){
     let tempStack= new Stack();
     let step=0;
     while (stack.length() > 0){
-        let tmp = stack.pop();
+        let tmp=stack.pop();
         step++;
         while (tempStack.length() > 0 && tempStack.peek() > tmp){
             stack.push(tempStack.peek());
@@ -61,41 +61,35 @@ function sort(stack){
         tempStack.push(tmp)
     }
     step++;
-    stack.dataStore=tempStack.dataStore;
-    console.log("Tomó "+step+" pasos para completar")
+    stack.dataStore = tempStack.dataStore;
+    console.log("Tomó "+step+" pasos para completarse")
 }
-
-
-
 
 let Mystack=new Stack()
 
-//10 elementos
 for(var i=0; i<5; i++){
     Mystack.clear();
     RandomStacks(10, Mystack)
-    console.time('Function execution Time')
+    console.time('Tiempo de ejecución')
     sort(Mystack)
-    console.timeEnd('Function execution Time')
+    console.timeEnd('Tiempo de ejecución')
     console.log(Mystack.dataStore)
 }
 
-//100 elementos
 for(var i=0; i<5; i++){
     Mystack.clear();
     RandomStacks(100, Mystack)
-    console.time('Function execution Time')
+    console.time('Tiempo de ejecución')
     sort(Mystack)
-    console.timeEnd('Function execution Time')
+    console.timeEnd('Tiempo de ejecución')
     console.log(Mystack.dataStore)
 }
 
-//1000 elementos
 for(var i=0; i<5; i++){
     Mystack.clear();
     RandomStacks(1000, Mystack)
-    console.time('Function execution Time')
+    console.time('Tiempo de ejecución')
     sort(Mystack)
-    console.timeEnd('Function execution Time')
+    console.timeEnd('Tiempo de ejecución')
     console.log(Mystack.dataStore)
 }
